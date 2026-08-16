@@ -1,0 +1,36 @@
+@host = http://localhost:8080
+@token = paste-token-here
+
+### Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Portfolio User",
+  "email": "portfolio@example.com",
+  "password": "StrongPass123!"
+}
+
+### Login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "portfolio@example.com",
+  "password": "StrongPass123!"
+}
+
+### Create project
+POST {{host}}/api/projects
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Recruiting Platform",
+  "key": "REC",
+  "description": "Hiring workflow and issue tracking"
+}
+
+### Health
+GET {{host}}/health
+
