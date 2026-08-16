@@ -23,10 +23,7 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
         {
             configuration.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["Database:ApplyMigrations"] = "false",
-                ["Jwt:Secret"] = "integration-test-secret-with-at-least-32-characters",
-                ["Jwt:Issuer"] = "ProjectFlow.Tests",
-                ["Jwt:Audience"] = "ProjectFlow.Tests"
+                ["Database:ApplyMigrations"] = "false"
             });
         });
 
@@ -51,4 +48,3 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
         await _database.DisposeAsync();
     }
 }
-
